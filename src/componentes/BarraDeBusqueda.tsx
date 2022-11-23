@@ -55,7 +55,7 @@ export default function BarraDeBusqueda({mostrar}:Props) {
           className="barraDeBusqueda__logo"
           src="/logo.svg"
           alt="logoJshop"
-          onClick={(e) => {
+          onClick={(e:any) => {
             enviarAlInicio(), detenerAnimacionCarrusel();
           }}
         />
