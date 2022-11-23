@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { BsSearch } from "react-icons/Bs";
+import { AiOutlineSearch } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
 import { EcommerceContexto } from "../contexto/EcommerceContexto";
 import "/public/BarraDeBusqueda.css";
@@ -68,7 +68,7 @@ export default function BarraDeBusqueda({mostrar}:Props) {
             onChange={(e:any) => setBusqueda(e.target.value)}
             value={busqueda}
           />
-          <BsSearch className="barraDeBusqueda__buscador__lupa" onClick={(e:any)=>enviarPagDeBusqueda(e)} />
+          <AiOutlineSearch className="barraDeBusqueda__buscador__lupa" onClick={(e:any)=>enviarPagDeBusqueda(e)} />
           </form>
           
           
