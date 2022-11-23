@@ -60,15 +60,15 @@ export default function BarraDeBusqueda({mostrar}:Props) {
           }}
         />
         {botonesBarra()}
-          <form className="barraDeBusqueda__buscador" action="" onSubmit={(e)=>enviarPagDeBusqueda(e)}>
+          <form className="barraDeBusqueda__buscador" action="" onSubmit={(e:any)=>enviarPagDeBusqueda(e)}>
           <input
             className="barraDeBusqueda__buscador__input"
             type="text"
             placeholder="Buscar"
-            onChange={(e) => setBusqueda(e.target.value)}
+            onChange={(e:any) => setBusqueda(e.target.value)}
             value={busqueda}
           />
-          <BsSearch className="barraDeBusqueda__buscador__lupa" onClick={(e)=>enviarPagDeBusqueda(e)} />
+          <BsSearch className="barraDeBusqueda__buscador__lupa" onClick={(e:any)=>enviarPagDeBusqueda(e)} />
           </form>
           
           
