@@ -1,0 +1,19 @@
+.paginaInicial__productos{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    gap: 55px;
+    bottom: 40px;
+}
+.paginaInicial__productos__producto{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+.paginaInicial__productos__producto__titulo{
+    font-size:37px;
+    font-weight:600;
+    color:#bb0f29;
+    text-shadow: 1px 2px 2px #FA9494,1px 3px 2px #ff9c9c
+}

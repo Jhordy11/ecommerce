@@ -1,0 +1,115 @@
+:root {
+    --tamaño-imagen-letraPh1: 22px;
+    --tamaño-imagen-letraPh2: 15px;
+  }
+.bannerInicial{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.bannerInicial__carrusel{
+    width: 100%;
+    overflow: hidden;
+}
+.bannerInicial__carrusel__partes{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.bannerInicial__carrusel__partes__parte{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.bannerInicial__puntos{
+    position: relative;
+    bottom:20px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.bannerInicial__puntos>div{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 1px solid #0a5886;
+    background:#0000003d;
+}
+.bannerInicial__promo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    color: #bb0f29;
+    padding: 6px 5%;
+    background: #f5e7ca79;
+    box-sizing: border-box;
+    border-radius: 10% 10% 0% 0% / 20% 20% 0% 0% ;
+    transform: none;
+  }
+  .bannerInicial__promo > h1 {
+    font-size: var(--tamaño-imagen-letraPh1);
+    font-weight: 600;
+  }
+  .bannerInicial__promo > h2 {
+    font-size: var(--tamaño-imagen-letraPh2);
+    font-weight: 600;
+  }
+  .bannerInicial__promo__btn {
+    font-size: var(--tamaño-imagen-letraPh2);
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background: #bb0f29;
+    color: #ffffff;
+    padding: 3px 10px;
+    margin-top: 5px;
+    font-family: "Fredoka", sans-serif;
+  }
+
+@keyframes cambiarColorPuntos {
+    0%{
+        background:#0000003d;
+    }
+    90%{
+        background:#000000;
+    }
+    100%{
+        background:#0000003d;
+    }      
+}
+@media screen and (min-width: 375px) {
+    
+    .bannerInicial__promo {
+ 
+        border-radius: 7% 7% 0% 0% / 20% 20% 0% 0% ;
+
+      }
+  
+  }
+  @media screen and (min-width: 768px) {
+    :root {
+        --tamaño-imagen-letraPh1: 28px;
+        --tamaño-imagen-letraPh2: 20px;
+      }
+    .bannerInicial__promo {
+ 
+        border-radius: 3% 3% 0% 0% / 20% 20% 0% 0% ;
+
+      }
+  
+  }
+  @media screen and (min-width: 1440px) {
+    :root {
+        --tamaño-imagen-letraPh1: 35px;
+        --tamaño-imagen-letraPh2: 25px;
+      }
+    .bannerInicial__promo {
+        padding: 12px 5%;
+        border-radius: 2% 2% 0% 0% / 20% 20% 0% 0% ;
+
+      }
+      
+  }

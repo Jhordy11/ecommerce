@@ -1,0 +1,110 @@
+:root {
+  --tamaño-imagen-banner: 150px;
+  --tamaño-imagen-letrah1: 25px;
+  --tamaño-imagen-letrah2: 15px;
+}
+.container_bannerSecundario{
+  width: 100%;
+  height: 315px;
+  overflow: hidden;
+}
+.bannerSecundario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bannerSecundario__carrusel {
+  width: 100%;
+  overflow: hidden;
+}
+.bannerSecundario__carrusel__imgs {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+.bannerSecundario_carrusel__imgs__img {
+  width: var(--tamaño-imagen-banner);
+  margin: 5% calc((100% - var(--tamaño-imagen-banner)) / 2);
+  position: relative;
+}
+
+.bannerSecundario__promo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    color: #bb0f29;
+    padding: 10px 5%;
+    background: #f5e7ca9f;
+    bottom: calc(
+      (var(--tamaño-imagen-letrah1) + var(--tamaño-imagen-letrah2)) * 2 + 36px
+    );
+    border-radius: 20px;
+    transform: none;
+  }
+  .bannerSecundario__promo > h1 {
+    font-size: var(--tamaño-imagen-letrah1);
+    font-weight: 600;
+  }
+  .bannerSecundario__promo > h2 {
+    font-size: var(--tamaño-imagen-letrah2);
+    font-weight: 500;
+  }
+  .bannerSecundario__promo__btn {
+    font-size: var(--tamaño-imagen-letrah2);
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background: #bb0f29;
+    color: #ffffff;
+    padding: 3px 10px;
+    margin-top: 5px;
+    font-family: "Fredoka", sans-serif;
+  }
+@media screen and (min-width: 768px) {
+  :root {
+    --tamaño-imagen-banner: 150px;
+    --tamaño-imagen-letrah1: 50px;
+    --tamaño-imagen-letrah2: 30px;
+  }
+  .bannerSecundario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top:10px;
+    width: 90%;
+  }
+  .bannerSecundario__carrusel {
+    width: 60%;
+    order:2;
+    border:15px solid #f7e9d0;
+    box-sizing: border-box;
+    border-radius:0% 15% 15% 0% / 0% 20% 20% 0% ;
+  }
+  .bannerSecundario__promo {
+    justify-content:center;
+    gap:5px;
+    position: inherit;
+    width: 40%;
+    border-radius: 20px;
+    border-radius: 15% 0% 0% 15% / 15% 0% 0% 15% ;
+    background: #f7e9d0;
+  }
+  .container_bannerSecundario{
+    width: 100%;
+    height: 375px;
+  }
+}
+@media screen and (min-width: 1024px) {
+    :root {
+      --tamaño-imagen-banner: 150px;
+      --tamaño-imagen-letrah1: 50px;
+      --tamaño-imagen-letrah2: 30px;
+    }
+    .bannerSecundario {
+      width: calc(0.8 * 1024px);
+    }
+
+  }

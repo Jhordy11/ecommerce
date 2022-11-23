@@ -1,0 +1,77 @@
+:root{
+    --tamaño--cardProductx:130px;
+    --tamaño--cardProducty:230px;
+}
+
+.cardProduct{
+    width: var(--tamaño--cardProductx);
+    height:var(--tamaño--cardProducty);
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items:center;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 5px solid #f7e2be;
+    box-shadow: -3px 3px 5px rgba(255, 0, 0, 0.2);
+    transition: all 1s;
+    user-select: none;
+    cursor: pointer;
+}
+.cardProduct__image{
+    width: 90%;
+    height: calc(0.55 * var(--tamaño--cardProducty));
+    transform: scale(0.85);
+}
+
+.cardProduct__nombre,.cardProduct__precio,.cardProduct__id{
+    color: #585858;
+    text-align:left;
+    width: 90%;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    transition: all 1s;
+}
+.cardProduct__nombre{
+    font-size:17px;
+}
+.cardProduct__precio{
+    font-size:17px;
+    color: #bb0f29
+}
+.cardProduct__id{
+    font-size:10px;
+}
+.cardProduct:hover,.cardProduct__nombre:hover{
+    transform: scale(1.02) ;
+}
+.cardProduct__precio:hover{
+    transform: scale(1.1) ;
+}
+@media screen and (min-width: 320px) {
+    :root{
+        --tamaño--cardProductx:145px;
+        --tamaño--cardProducty:230px;
+    }
+    .cardProduct__nombre{
+        font-size:19px;
+    }
+    .cardProduct__precio{
+        font-size:20px;
+    }
+}
+@media screen and (min-width: 375px) {
+    :root{
+        --tamaño--cardProductx:175px;
+        --tamaño--cardProducty:280px;
+    }
+    .cardProduct__nombre{
+        font-size:22px;
+    }
+    .cardProduct__precio{
+        font-size:25px;
+    }
+    .cardProduct__id{
+        font-size:13px;
+    }
+}

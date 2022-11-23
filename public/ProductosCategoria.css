@@ -1,0 +1,34 @@
+.productosCategoria{
+    gap: 10px;
+    margin: 0 auto;
+    width: 97%;
+    justify-content:center;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@media screen and (min-width: 320px) {
+    .productosCategoria{
+        width: 96%;
+
+    }
+
+}
+@media screen and (min-width: 768px) {
+    .productosCategoria{
+        justify-content:start;
+    }
+
+}
+@media screen and (min-width: 1024px) {
+    .productosCategoria{
+        width: calc(1024px * 0.75);
+        gap: 20px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .productosCategoria{
+        width: calc(1440px * 0.8);
+        gap: 20px;
+    }
+}

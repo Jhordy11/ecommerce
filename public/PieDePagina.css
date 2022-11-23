@@ -1,0 +1,117 @@
+.pieDePagina{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    padding:20px 0;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#f7e9d0;
+    gap:20px;
+    user-select: none;
+}
+.pieDePagina__logo{
+    width: 125px;
+    align-self: center;
+}
+.pieDePagina__links{
+    display:flex;
+    flex-direction:column;
+    font-size:15px;
+    gap:10px;
+    color: #585858;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 400;
+    
+}
+.pieDePagina__links{
+    cursor: pointer;
+    
+}
+.pieDePagina__form{
+    width: 200px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+.pieDePagina__form> h2{
+    text-align: left;
+    font-size:17px;
+    color: #bb0f29;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+}
+.pieDePagina__form__name, .pieDePagina__form__mensaje{
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #bb0f29;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    background: none;
+    outline: none;
+    transition: all 1s;
+}
+
+.pieDePagina__form__enviar{
+    border: none;
+    box-sizing:border-box;
+    border-radius: 5px;
+    font-size: 12px;
+    background: #bb0f29;
+    color: #F5EDDC;
+    padding:5px 10px;
+    align-self: start;
+    font-family: 'Fredoka', sans-serif;
+    transition: all 1s;
+}
+
+.pieDePagina__copy{
+    background:#e3e6e3;
+    font-size: 11px;
+    text-align: center;
+    padding: 20px;
+    user-select: none;
+}
+.pieDePagina__form__name:focus,.pieDePagina__form__mensaje:focus{
+    border-color: #ec8938;
+    fill: #ec8938;
+}
+.pieDePagina__form__enviar:hover{
+    background: #ec8938;
+    transform: scale(1.05)
+}
+@media screen and (min-width: 768px) {
+    .pieDePagina{
+        flex-direction:row;
+        justify-content:space-around;
+        align-items:center;
+    }
+    .pieDePagina__form{
+        width: 350px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .pieDePagina{
+        justify-content:center;
+        gap:150px;
+    }
+    .pieDePagina__form{
+        width: 500px;
+    }
+    .pieDePagina__form> h2{
+       font-size:25px;
+    }
+    .pieDePagina__links{
+        font-size:17px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .pieDePagina{
+        gap:200px;
+    }
+
+
+}

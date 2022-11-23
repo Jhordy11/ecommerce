@@ -1,0 +1,130 @@
+:root{
+    --tamaño-lupa:20px;
+    --tamaño-buscador:160px;
+}
+.gbbarraDeBusqueda{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    background: #f7e9d0;
+    
+}
+.barraDeBusqueda{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    gap: 5px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+.barraDeBusqueda__logo{
+    height: 35px;
+    cursor: pointer;
+}
+
+.barraDeBusqueda__botonLog{
+    border: none;
+    border-radius: 4px;
+    background: #bb0f29;
+    color: #F5EDDC;
+    padding: 3px 10px;
+    margin-bottom: 5px;
+    align-self: flex-end;
+    font-family: 'Fredoka', sans-serif;
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.411);
+    transition: all 1s;
+    cursor: pointer;
+}
+.barraDeBusqueda__botonAgre{
+    border: 2px solid #bb0f29;
+    color: #bb0f29;
+    border-radius: 6px;
+    background:transparent;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 500;
+    margin-bottom: 5px;
+    align-self: flex-end;
+    transition: all 1s;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.barraDeBusqueda__buscador{
+    display: flex;
+    align-items: center;
+    width: var(--tamaño-buscador);
+}
+.barraDeBusqueda__buscador__input{
+    width: 100%;
+    position: relative;
+    left:calc(var(--tamaño-lupa) / 2 - 2.5px) ;
+    border: 2px solid #bb0f29;
+    border-radius: 8px;
+    padding: 3px 8px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 500;
+    background: none;
+    outline: none;
+    transition: border-color 1s;
+}
+
+.barraDeBusqueda__buscador__lupa{
+    position: relative;
+    fill:#bb0f29;
+    width: var(--tamaño-lupa);
+    right: calc(var(--tamaño-lupa) / 2 + 5px);
+    transition: border-color 1s;
+}
+.barraDeBusqueda__buscador__input:focus{
+    border-color: #ec8938;
+    fill: #ec8938;
+}
+.barraDeBusqueda__botonLog:hover{
+    background: #ec8938;
+    transform: scale(1.05)
+}
+.barraDeBusqueda__botonAgre:hover{
+    border:2px solid #ec8938;
+    color: #ec8938;
+    transform: scale(1.05)
+}
+@media screen and (min-width: 375px) {
+    :root{
+        --tamaño-buscador:240px;
+    }
+
+}
+@media screen and (min-width: 768px) {
+    :root{
+        --tamaño-lupa:20px;
+        --tamaño-buscador:260px;
+    }
+    .barraDeBusqueda__buscador{
+        order:2;
+
+    }
+    .barraDeBusqueda__botonAgre,.barraDeBusqueda__botonLog{
+        order:3;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .barraDeBusqueda{
+        width: 1024px;
+    }
+    :root{
+        --tamaño-buscador:240px;
+    }
+
+}
+@media screen and (min-width: 1440px) {
+    .barraDeBusqueda{
+        gap: 100px
+    }
+    :root{
+        --tamaño-buscador:300px;
+    }
+
+}

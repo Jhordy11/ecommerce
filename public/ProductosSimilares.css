@@ -1,0 +1,14 @@
+.productosSimilares{
+    box-sizing: border-box;
+    width: 100%;
+    justify-content:start;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.productosSimilares>div{
+    transform: scale(0.9)
+}
+.productosSimilares>div:hover{
+    transform: scale(1) ;
+}
