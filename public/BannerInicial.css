@@ -63,10 +63,12 @@
     border: none;
     border-radius: 8px;
     background: #bb0f29;
-    color: #ffffff;
+    color: #f7dada;
     padding: 3px 10px;
     margin-top: 5px;
     font-family: "Fredoka", sans-serif;
+    cursor: pointer;
+    z-index: 1;
   }
 
 @keyframes cambiarColorPuntos {

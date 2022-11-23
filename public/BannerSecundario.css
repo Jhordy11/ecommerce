@@ -61,6 +61,7 @@
     padding: 3px 10px;
     margin-top: 5px;
     font-family: "Fredoka", sans-serif;
+    cursor: pointer;
   }
 @media screen and (min-width: 768px) {
   :root {

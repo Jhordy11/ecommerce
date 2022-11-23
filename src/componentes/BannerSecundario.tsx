@@ -1,10 +1,15 @@
 import { useContext, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { EcommerceContexto } from "../contexto/EcommerceContexto";
 import "/public/BannerSecundario.css";
 export default function BannerSecundario() {
   const [pImagen, setPImagen] = useState<string[]>([]);
   const { categorias, intervaloCarshow } = useContext(EcommerceContexto);
   const refCar = useRef<any>(null);
+  const nav = useNavigate();
+  function enviarPagDeBusqueda() {
+    nav(`/buscar/all`);
+  }
 
   async function tomarImgCategorias() {
     let iman: string[] = [];
@@ -71,7 +76,7 @@ export default function BannerSecundario() {
           <h1>Febrero</h1>
           <h1>Promocional</h1>
           <h2>Hasta un 33% en descuentos</h2>
-          <button className="bannerSecundario__promo__btn">
+          <button className="bannerSecundario__promo__btn" onClick={enviarPagDeBusqueda}>
             Ver Promociones
           </button>
         </section>
