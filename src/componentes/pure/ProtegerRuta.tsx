@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 
 interface Props{
     redirecionarA: string;

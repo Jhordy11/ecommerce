@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
-import BarraDeBusqueda from "./BarraDeBusqueda";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
+import BarraDeBusqueda from "../pure/BarraDeBusqueda";
 import "/public/PagLogin.css";
 export default function PagLogin() {
   const [userName, setUserName] = useState<string>("");

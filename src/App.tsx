@@ -1,14 +1,14 @@
 import "./App.css";
-import PagAgregarProducto from "./componentes/PagAgregarProducto";
-import PagInicial from "./componentes/PagInicial";
-import PagLogin from "./componentes/PagLogin";
-import PagPorProducto from "./componentes/PagPorProducto";
-import PieDePagina from "./componentes/PieDePagina";
+import PagAgregarProducto from "./componentes/containers/PagAgregarProducto";
+import PagInicial from "./componentes/containers/PagInicial";
+import PagLogin from "./componentes/containers/PagLogin";
+import PagPorProducto from "./componentes/containers/PagPorProducto";
+import PieDePagina from "./componentes/pure/PieDePagina";
 import { BrowserRouter, Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import { EcommerceContextoProvider } from "./contexto/EcommerceContexto";
-import ProtegerRuta from "./componentes/ProtegerRuta";
-import PagBuscados from "./componentes/PagBuscados";
-import Error404 from "./componentes/Error404";
+import ProtegerRuta from "./componentes/pure/ProtegerRuta";
+import PagBuscados from "./componentes/containers/PagBuscados";
+import Error404 from "./componentes/containers/Error404";
 
 function App() {
   return (

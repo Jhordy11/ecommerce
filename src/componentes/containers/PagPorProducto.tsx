@@ -1,23 +1,16 @@
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import "/public/PaginaInicial.css";
 import "/public/PagPorProducto.css";
 import { useContext, useEffect, useRef, useState } from "react";
-import ProductosSimilares from "./ProductosSimilares";
+import ProductosSimilares from "../pure/ProductosSimilares";
 import { useParams } from "react-router-dom";
-import BarraDeBusqueda from "./BarraDeBusqueda";
+import BarraDeBusqueda from "../pure/BarraDeBusqueda";
+import {Card} from "../../models/Card"
 
-interface datosCard {
-  id?: number;
-  title?: string;
-  price?: string;
-  category?: string;
-  description?: string;
-  image?: string;
-}
 export default function PagPorProducto() {
   const { productos } = useContext(EcommerceContexto);
   const { idProducto } = useParams();
-  const [datosProducto, setDatosProducto] = useState<datosCard>();
+  const [datosProducto, setDatosProducto] = useState<Card>();
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const refPorP = useRef<any>(null);
   function tomarDatoProductos() {

@@ -1,10 +1,10 @@
-import BannerInicial from "./BannerInicial";
-import BannerSecundario from "./BannerSecundario";
-import ProductosCategoria from "./ProductosCategoria";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import BannerInicial from "../pure/BannerInicial";
+import BannerSecundario from "../pure/BannerSecundario";
+import ProductosCategoria from "../pure/ProductosCategoria";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import "/public/PaginaInicial.css";
 import { useContext } from "react";
-import BarraDeBusqueda from "./BarraDeBusqueda";
+import BarraDeBusqueda from "../pure/BarraDeBusqueda";
 export default function PagInicial() {
 const { categorias} = useContext(EcommerceContexto);
   return (<>

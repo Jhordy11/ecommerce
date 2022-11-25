@@ -1,15 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import "/public/CardProductos.css";
+import {Card} from "../../models/Card"
 interface Props {
-  datosCard: { id?: number,
-    title?:string,
-    price?:string,
-    category?:string,
-    description?:string,
-    image?:string;
-    };
+  datosCard: Card;
 }
 
 export function CardProductos({ datosCard }: Props) {

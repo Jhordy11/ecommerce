@@ -1,7 +1,7 @@
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import { useContext, useEffect, useState } from "react";
-import BarraDeBusqueda from "./BarraDeBusqueda";
-import ProductosBuscados from "./ProductosBuscados";
+import BarraDeBusqueda from "../pure/BarraDeBusqueda";
+import ProductosBuscados from "../pure/ProductosBuscados";
 import { NavLink, useParams } from "react-router-dom";
 import "/public/PagBuscados.css";
   

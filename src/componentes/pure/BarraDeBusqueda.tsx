@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import "/public/BarraDeBusqueda.css";
 interface Props{
   mostrar: boolean;

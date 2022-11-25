@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import "/public/BannerInicial.css";
 export default function BannerInicial() {
   const [windowSize, setWindowSize] = useState(getWindowSize());

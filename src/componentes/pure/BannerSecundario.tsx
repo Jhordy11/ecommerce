@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { EcommerceContexto } from "../contexto/EcommerceContexto";
+import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import "/public/BannerSecundario.css";
 export default function BannerSecundario() {
   const [pImagen, setPImagen] = useState<string[]>([]);

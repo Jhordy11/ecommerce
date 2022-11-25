@@ -1,4 +1,4 @@
-import BarraDeBusqueda from "./BarraDeBusqueda";
+import BarraDeBusqueda from "../pure/BarraDeBusqueda";
 import "/public/Error404.css";
 export default function Error404() {
     
