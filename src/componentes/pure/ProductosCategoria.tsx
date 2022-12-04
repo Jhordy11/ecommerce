@@ -4,7 +4,7 @@ import "/public/ProductosCategoria.css";
 import { useContext } from "react";
 import {Card} from "../../models/Card"
 interface Props {
-    category?: string,
+    category: string,
 }
   
 export default function ProductosCategoria({ category}: Props) {

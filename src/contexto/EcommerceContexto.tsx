@@ -1,25 +1,31 @@
 import { createContext, useEffect, useRef } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-interface datosCard {
-  id?: number;
-  title?: string;
-  price?: string;
-  category?: string;
-  description?: string;
-  image?: string;
+import {Card} from "../models/Card"
+import {User} from "../models/User"
+interface Props{
+  children: JSX.Element|JSX.Element[]
 }
-interface user {
-  token: string | null;
+interface PropsEcommerceContext{
+    categorias:string[],
+    productos:Card[],
+    user:User,
+    intervaloCarPshow:  React.MutableRefObject<number>,
+    intervaloPuntosshow:  React.MutableRefObject<number>,
+    intervaloCarshow:  React.MutableRefObject<number>,
+    setUser: React.Dispatch<React.SetStateAction<User>>,
+    detenerAnimacionCarrusel:() => void
 }
-export const EcommerceContexto = createContext<any>(null);
-export function EcommerceContextoProvider(props: any) {
+
+export const EcommerceContexto = createContext<PropsEcommerceContext>({} as PropsEcommerceContext);
+
+export function EcommerceContextoProvider({children}: Props) {
   const [categorias, setCategorias] = useState<string[]>([]);
-  const [productos, setProductos] = useState<datosCard[]>([]);
-  const [user, setUser] = useState<user>({ token: null });
-  const intervaloCarPshow = useRef<any>(null);
-  const intervaloPuntosshow = useRef<any>(null);
-  const intervaloCarshow = useRef<any>(null);
+  const [productos, setProductos] = useState<Card[]>([]);
+  const [user, setUser] = useState<User>({ token: null });
+  const intervaloCarPshow = useRef<number>(0);
+  const intervaloPuntosshow = useRef<number>(0);
+  const intervaloCarshow = useRef<number>(0);
   const nav = useNavigate();
   function tomarCategorias() {
     fetch("https://fakestoreapi.com/products/categories")
@@ -35,27 +41,7 @@ export function EcommerceContextoProvider(props: any) {
         setProductos(productos);
       });
   }
-  function enviarAlInicio() {
-    nav(`/`);
-  }
-  function iniciarSesion(e: any) {
-    e.preventDefault();
-    fetch("https://fakestoreapi.com/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: `${e.target[0].value}`,
-        password: `${e.target[1].value}`,
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        setUser({ token: json.token }),enviarAlInicio();
-      })
-      .catch((err) => {setUser({ token: null })});
-  }
+  
   function detenerAnimacionCarrusel(){
     clearInterval(intervaloCarPshow.current)
     clearInterval(intervaloPuntosshow.current)
@@ -71,13 +57,15 @@ export function EcommerceContextoProvider(props: any) {
       value={{
         categorias,
         productos,
-        iniciarSesion,
         user,
-        intervaloCarPshow ,intervaloPuntosshow,
-        intervaloCarshow,detenerAnimacionCarrusel
+        intervaloCarPshow,
+        intervaloPuntosshow,
+        intervaloCarshow,
+        setUser,
+        detenerAnimacionCarrusel
       }}
     >
-      {props.children}
+      {children}
     </EcommerceContexto.Provider>
   );
 }

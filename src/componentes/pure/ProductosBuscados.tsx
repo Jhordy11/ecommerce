@@ -5,7 +5,7 @@ import ProductosCategoria from "./ProductosCategoria";
 import "/public/ProductosCategoria.css";
 import {Card} from "../../models/Card"
 interface Props {
-    clave?: any,
+    clave: string,
 }
   
 export default function ProductosBuscados({ clave}: Props) {

@@ -1,12 +1,43 @@
 import { useContext, useState } from "react";
 import { EcommerceContexto } from "../../contexto/EcommerceContexto";
 import BarraDeBusqueda from "../pure/BarraDeBusqueda";
+import { useNavigate } from "react-router-dom";
 import "/public/PagLogin.css";
 export default function PagLogin() {
   const [userName, setUserName] = useState<string>("");
   const [paswword, setPaswword] = useState<string>("");
-  const { iniciarSesion } = useContext(EcommerceContexto);
+  const { setUser } = useContext(EcommerceContexto);
   const patt: string = "(?!.*?[<>``]).{5,}$";
+  const nav = useNavigate();
+
+  function enviarAlInicio() {
+    nav(`/`);
+  }
+
+  function limpiarInputs(){
+  setUserName("");
+  setPaswword("");
+  }
+
+  function iniciarSesion(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    fetch("https://fakestoreapi.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: `${userName}`,
+        password: `${paswword}`,
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        limpiarInputs(),setUser({ token: json.token }),enviarAlInicio();
+      })
+      .catch((err) => {setUser({ token: null }),limpiarInputs()});
+  }
+
   return (
     <>
       <BarraDeBusqueda mostrar={false} />

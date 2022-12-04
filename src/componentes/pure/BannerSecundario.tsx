@@ -5,7 +5,7 @@ import "/public/BannerSecundario.css";
 export default function BannerSecundario() {
   const [pImagen, setPImagen] = useState<string[]>([]);
   const { categorias, intervaloCarshow } = useContext(EcommerceContexto);
-  const refCar = useRef<any>(null);
+  const refCar = useRef<HTMLDivElement>(null);
   const nav = useNavigate();
   function enviarPagDeBusqueda() {
     nav(`/buscar/all`);
@@ -28,10 +28,13 @@ export default function BannerSecundario() {
       return;
     }
     if (refCar.current.children.length > 0) {
-      const primerElemento = refCar.current.firstChild;
+      const primerElemento: Node = refCar.current.children[0];
       refCar.current.style.transition = `3000ms ease-out all`;
       refCar.current.style.transform = `translateX(-${refCar.current.offsetWidth}px)`;
       const transicion = () => {
+        if (refCar.current == null) {
+          return;
+        }
         refCar.current.style.transition = "none";
         refCar.current.style.transform = `translateX(0)`;
         refCar.current.appendChild(primerElemento);

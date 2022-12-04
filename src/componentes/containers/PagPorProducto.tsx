@@ -12,17 +12,21 @@ export default function PagPorProducto() {
   const { idProducto } = useParams();
   const [datosProducto, setDatosProducto] = useState<Card>();
   const [windowSize, setWindowSize] = useState(getWindowSize());
-  const refPorP = useRef<any>(null);
+  const refPorP = useRef<HTMLDivElement>(null);
   function tomarDatoProductos() {
     setDatosProducto(productos[Number(idProducto) - 1]);
   }
   function centrarSimilares() {
+    if (refPorP.current == null) {
+      return;
+    }
+    const seccionesPorP:HTMLCollection = refPorP.current.children;
+    const iSeccionesPorP = seccionesPorP as HTMLCollectionOf<HTMLElement>
+
     const tamañoPag = refPorP.current.offsetWidth;
-    const tamañoAP =
-      refPorP.current.children[refPorP.current.children.length - 2].offsetWidth;
-    refPorP.current.lastChild.style.marginLeft = `${
-      tamañoPag - tamañoAP - 18
-    }px`;
+    const tamañoAP = iSeccionesPorP[1].offsetWidth;
+    
+    iSeccionesPorP[2].style.marginLeft = `${tamañoPag - tamañoAP - 18}px`;
   }
   useEffect(() => {
     tomarDatoProductos();

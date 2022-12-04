@@ -44,7 +44,7 @@ export default function BarraDeBusqueda({mostrar}:Props) {
   function enviarMenuAdmin() {
     nav(`/AgregarProducto`);
   }
-  function enviarPagDeBusqueda(e: any) {
+  function enviarPagDeBusqueda(e: React.MouseEvent|React.FormEvent) {
     e.preventDefault();
     nav(`/buscar/${busqueda}`);
   }
@@ -55,20 +55,20 @@ export default function BarraDeBusqueda({mostrar}:Props) {
           className="barraDeBusqueda__logo"
           src="/logo.svg"
           alt="logoJshop"
-          onClick={(e:any) => {
+          onClick={(e:React.MouseEvent) => {
             enviarAlInicio(), detenerAnimacionCarrusel();
           }}
         />
         {botonesBarra()}
-          <form className="barraDeBusqueda__buscador" action="" onSubmit={(e:any)=>enviarPagDeBusqueda(e)}>
+          <form className="barraDeBusqueda__buscador" action="" onSubmit={(e:React.FormEvent)=>enviarPagDeBusqueda(e)}>
           <input
             className="barraDeBusqueda__buscador__input"
             type="text"
             placeholder="Buscar"
-            onChange={(e:any) => setBusqueda(e.target.value)}
+            onChange={(e:React.ChangeEvent<HTMLInputElement>) => setBusqueda(e.target.value)}
             value={busqueda}
           />
-          <AiOutlineSearch className="barraDeBusqueda__buscador__lupa" onClick={(e:any)=>enviarPagDeBusqueda(e)} />
+          <AiOutlineSearch className="barraDeBusqueda__buscador__lupa" onClick={(e:React.MouseEvent)=>enviarPagDeBusqueda(e)} />
           </form>
           
           

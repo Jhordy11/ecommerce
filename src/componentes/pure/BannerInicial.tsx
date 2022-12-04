@@ -9,9 +9,9 @@ export default function BannerInicial() {
   const [imagenes, setImagenes] = useState<string[]>([]);
   const { intervaloCarPshow, intervaloPuntosshow } =
     useContext(EcommerceContexto);
-  const refCarP = useRef<any>(null);
-  const refPuntos = useRef<any>(null);
-  const refPromo = useRef<any>(null);
+  const refCarP = useRef<HTMLDivElement>(null);
+  const refPuntos = useRef<HTMLDivElement>(null);
+  const refPromo = useRef<HTMLDivElement>(null);
   const nav = useNavigate();
   function enviarPagDeBusqueda() {
     nav(`/buscar/all`);
@@ -42,14 +42,18 @@ export default function BannerInicial() {
       return;
     }
     if (refCarP.current.children.length > 0) {
-      const primerElemento = refCarP.current.firstChild;
+      const primerElemento: Node = refCarP.current.children[0];
       refCarP.current.style.transition = `5000ms ease-out all`;
       refCarP.current.style.transform = `translateX(-${refCarP.current.offsetWidth}px)`;
       const transicion = () => {
-        refCarP.current.style.transition = "none";
-        refCarP.current.style.transform = `translateX(0)`;
-        refCarP.current.appendChild(primerElemento);
-        refCarP.current.removeEventListener("transitionend", transicion);
+        if (refCarP.current == null) {
+          return;
+        }
+          refCarP.current.style.transition = "none";
+          refCarP.current.style.transform = `translateX(0)`;
+          refCarP.current.appendChild(primerElemento);
+          refCarP.current.removeEventListener("transitionend", transicion);
+
       };
       refCarP.current.addEventListener("transitionend", transicion);
     }
@@ -59,32 +63,16 @@ export default function BannerInicial() {
     if (refPuntos.current == null) {
       return;
     }
+
+    const puntos:HTMLCollection = refPuntos.current.children;
+    const iPunto = puntos as HTMLCollectionOf<HTMLElement>
+
     if (refPuntos.current.children.length > 0) {
       for (let i = 0; i < refPuntos.current.children.length; i++) {
-        if (i == 0) {
-          refPuntos.current.children[
-            i
-          ].style.animation = `cambiarColorPuntos 5s linear`;
+          iPunto[i].style.animation = `cambiarColorPuntos 5s linear ${5*i}s`;
           setTimeout(() => {
-            refPuntos.current.children[i].style.animation = `none`;
-          }, 5000);
-        }
-        if (i == 1) {
-          refPuntos.current.children[
-            i
-          ].style.animation = `cambiarColorPuntos 5s linear 5s`;
-          setTimeout(() => {
-            refPuntos.current.children[i].style.animation = `none`;
-          }, 10000);
-        }
-        if (i == 2) {
-          refPuntos.current.children[
-            i
-          ].style.animation = `cambiarColorPuntos 5s linear 10s`;
-          setTimeout(() => {
-            refPuntos.current.children[i].style.animation = `none`;
-          }, 15000);
-        }
+            iPunto[i].style.animation = `none`;
+          }, 5000 + i * 5000 );
       }
     }
   }
@@ -102,8 +90,8 @@ export default function BannerInicial() {
   }
 
   function determinarTamaños() {
-    setTamañoPromo(refPromo.current.offsetHeight);
-    setTamañoPuntos(refPuntos.current.offsetHeight);
+    setTamañoPromo(refPromo.current != null? refPromo.current.offsetHeight:0);
+    setTamañoPuntos(refPuntos.current != null? refPuntos.current.offsetHeight:0);
   }
 
   useEffect(() => {
@@ -154,7 +142,12 @@ export default function BannerInicial() {
       >
         <h1>Las Mejores Promociones</h1>
         <h2>Solo por hoy</h2>
-        <button className="bannerInicial__promo__btn" onClick={enviarPagDeBusqueda}>Ver más</button>
+        <button
+          className="bannerInicial__promo__btn"
+          onClick={enviarPagDeBusqueda}
+        >
+          Ver más
+        </button>
       </section>
       <section
         className="bannerInicial__puntos"
