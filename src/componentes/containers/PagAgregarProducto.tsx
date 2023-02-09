@@ -8,7 +8,6 @@ export default function PagAgregarProducto() {
   const [namePro, setNamePro] = useState<string>("");
   const [precio, setPrecio] = useState<string>("");
   const [descripcion, setDescripcion] = useState<string>("");
-  const { iniciarSesion } = useContext(EcommerceContexto);
   const patt: string = "(?!.*?[<>``]).{5,}$";
   const pattPrecio: string = "^[0-9]+([,.][0-9]+)?$";
   return (
